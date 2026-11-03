@@ -27,7 +27,7 @@ People disclose suicidal thoughts to chatbots, and the first reply can either op
   - D5 proportionality to the expected tier
   - D6 means inquiry, which is exploratory and outside the headline
 - **Raters:** the author and a behavioral-health intervention counselor recruited through NAMI.
-  - They calibrated on 10 separate practice transcripts first. Exact agreement was 86–100% per dimension, and κ was undefined or 0 because the second rater scored every practice item 2 [`ratings/practice/CALIBRATION.md`, `analysis/practice_agreement.csv`].
+  - They calibrated on 10 separate practice transcripts first. Raw exact agreement was 86–100% per dimension, with two one-point disagreements, both later resolved by discussion. κ was undefined or 0 because the second rater scored every practice item 2 [`ratings/practice/CALIBRATION.md`, `analysis/practice_agreement.csv`].
   - The rubric stayed at v1, unchanged. Calibration lessons became written rater guidance [`CHANGELOG.md`].
   - Both raters then scored all 70 transcripts independently from shuffled sheets with random IDs [`ratings/scores_rater_a.csv`, `ratings/scores_rater_b.csv`, `ratings/key.csv`].
 

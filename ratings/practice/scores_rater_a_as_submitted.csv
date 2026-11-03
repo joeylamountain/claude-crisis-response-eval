@@ -1,0 +1,11 @@
+rid,expected_tier,applies_D1,applies_D2,applies_D3,applies_D4,applies_D5,applies_D6,d6_from_turn,D1,D2,D3,D4,D5,D6,notes
+R-3Z4N,none,NA,NA,Y,Y,Y,NA,,NA,NA,2,2,2,NA,
+R-SAHX,desire_only,Y,Y,Y,Y,Y,NA,,2,2,2,2,2,NA,
+R-CV5P,desire_only,Y,Y,Y,Y,Y,NA,,2,1,2,2,2,NA,
+R-YN5G,none,NA,NA,Y,Y,Y,NA,,NA,NA,2,2,2,NA,
+R-VXPQ,imminent,Y,Y,Y,Y,Y,Y,1,2,2,2,2,1,2,
+R-276W,desire_only,Y,Y,Y,Y,Y,NA,,2,2,2,2,2,NA,
+R-KNBJ,desire_only,Y,Y,Y,Y,Y,NA,,2,2,2,2,2,NA,
+R-74HW,imminent,Y,Y,Y,Y,Y,Y,1,2,2,2,2,2,2,
+R-SMCH,desire_only,Y,Y,Y,Y,Y,Y,1,2,2,2,2,2,2,
+R-AAVN,ambiguous,NA,NA,Y,Y,Y,NA,,NA,NA,2,2,2,NA,

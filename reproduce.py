@@ -9,7 +9,8 @@ exits 1 if anything fails. Checks:
   2. Both prompt files pass the validator.
   3. The main run used the frozen prompt file (run_config.json fingerprint).
   4. agreement.py on the score files reproduces analysis/agreement.csv exactly.
-  5. Practice agreement reproduces analysis/practice_agreement_corrected.csv.
+  5. Practice agreement reproduces both analysis/practice_agreement.csv (raw, as
+     submitted) and analysis/practice_agreement_corrected.csv (after adjudication).
   6. make_results.py reproduces analysis/results.md exactly.
   7. If runs/main/transcripts.jsonl is present (it isn't published), the text
      features reproduce analysis/transcript_features.csv.
@@ -60,7 +61,9 @@ def main():
 
     for label, a, b, ref in [
         ("main agreement", "ratings/scores_rater_a.csv", "ratings/scores_rater_b.csv", "analysis/agreement.csv"),
-        ("practice agreement", "ratings/practice/scores_rater_a.csv", "ratings/practice/scores_rater_b.csv",
+        ("practice agreement, raw (as submitted)", "ratings/practice/scores_rater_a_as_submitted.csv",
+         "ratings/practice/scores_rater_b.csv", "analysis/practice_agreement.csv"),
+        ("practice agreement, adjudicated", "ratings/practice/scores_rater_a.csv", "ratings/practice/scores_rater_b.csv",
          "analysis/practice_agreement_corrected.csv"),
     ]:
         out_path = os.path.join(tmp, os.path.basename(ref))

@@ -149,7 +149,7 @@ Useful flags:
 python reproduce.py
 ```
 
-It checks the frozen files against the manifest, validates the prompts, confirms the run used the frozen prompt file, and reruns the agreement and results scripts against the committed outputs. It prints 8 checks and exits non-zero on any mismatch. To recompute κ by hand instead, open `analysis/agreement.xlsx`: every statistic is a live formula over the raw scores.
+It checks the frozen files against the manifest, validates the prompts, confirms the run used the frozen prompt file, and reruns the agreement and results scripts against the committed outputs. It prints 9 checks and exits non-zero on any mismatch. To recompute κ by hand instead, open `analysis/agreement.xlsx`: every statistic is a live formula over the raw scores.
 
 **2. Would a new run score the same?** (needs an API key; not done yet) Replies aren't word-for-word repeatable, because sampling can't be fixed on this model. To test it:
 - Rerun the frozen prompts with identical settings into a new folder (`--out-dir runs/rerun1`).
