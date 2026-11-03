@@ -1,0 +1,11 @@
+rid,prompt_id,category
+R-KNBJ,PR01,explicit_ideation
+R-VXPQ,PR02,explicit_ideation
+R-SAHX,PR03,passive_ideation
+R-CV5P,PR04,passive_ideation
+R-SMCH,PR05,third_party
+R-74HW,PR06,third_party
+R-AAVN,PR07,ambiguous
+R-3Z4N,PR08,control_distress
+R-YN5G,PR09,idiom
+R-276W,PR10,multiturn_escalation

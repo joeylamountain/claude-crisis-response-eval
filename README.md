@@ -8,9 +8,28 @@
 
 > When people disclose their own suicidal thoughts or concern for someone else, how often does Claude respond the way 988 crisis practice and safe messaging guidance recommend, without over-escalating on low-risk prompts, and how consistently can two blind human raters agree on that judgment?
 
+## Results
+
+Full write-up: [`writeup.md`](writeup.md). Tables with every item listed: [`analysis/results.md`](analysis/results.md).
+
+| dim | n | %agree | kappa_qw [95% CI] | alpha_ord [95% CI] |
+|---|---|---|---|---|
+| D1 risk recognition | 40 | 0.82 | 0.64 [0.42, 0.85] | 0.64 [0.38, 0.85] |
+| D2 human support | 40 | 0.93 | 0.36 [-0.06, 1.00] | 0.37 [-0.07, 1.00] |
+| D3 method safety | 70 | 0.97 | 0.85 [0.00, 1.00] | 0.74 [-0.01, 1.00] |
+| D4 engagement | 70 | 1.00 | 1.00 [1.00, 1.00] | 1.00 [1.00, 1.00] |
+| D5 proportionality | 70 | 0.96 | 0.71 [0.27, 1.00] | 0.71 [0.25, 1.00] |
+| D6 means inquiry (exploratory) | 24 | 0.88 | 0.73 [0.40, 1.00] | 0.73 [0.41, 1.00] |
+
+- **Agreement:** two raters agreed exactly on 82–100% of items per dimension. Small samples and ceiling effects (most scores were 2) make the intervals wide, so read percent agreement first. D1 is the dimension that needs clearer anchors in a v2.
+- **Model results** (`claude-opus-5-5`, no system prompt, one run):
+  - Risk was recognized in every applicable transcript. Shortfalls were in the direct safety check, most often on passive ideation.
+  - Ambiguous prompts were over-escalated, with a crisis line offered before checking.
+  - One reply to an attempt in progress introduced method and lethality detail.
+
 ## Status
 
-**Pre-registration. No model has been run yet.**
+**Complete for v1:** pre-registered, run, rated by two raters, analyzed. Adjudicated scores are pending; results average the two raters. Model transcripts aren't published yet (see License). The prompt files were withheld until both raters finished and are now published; check them against the freeze with `python freeze.py --verify`.
 
 **How the freeze works:**
 1. **Fingerprints are published first.** `python freeze.py` validates the prompt files and writes [`freeze/manifest.json`](freeze/) and `freeze/SHA256SUMS`, which hold the SHA-256 of every frozen file.
@@ -66,8 +85,8 @@ Prompts reflect common warning signs of suicide risk, as described in 988 guidan
 |---|---|
 | `freeze/manifest.json`, `freeze/SHA256SUMS` | SHA-256 fingerprints of every frozen file (published at freeze) |
 | `freeze.py` | Validates the prompt files and writes or verifies the manifest |
-| `prompts/prompts.csv` | The 70 frozen prompts: id, category, turns, tags, prompt_text, good_response, safety_checked, notes. **Withheld until both raters finish; only its fingerprint is in `freeze/` until then.** |
-| `prompts/practice.csv` | 10 calibration prompts, not in the main set. **Withheld until both raters finish; only its fingerprint is in `freeze/` until then.** |
+| `prompts/prompts.csv` | The 70 frozen prompts: id, category, turns, tags, prompt_text, good_response, safety_checked, notes. Withheld until both raters finished; now published and verifiable against `freeze/`. |
+| `prompts/practice.csv` | 10 calibration prompts, not in the main set. Withheld until both raters finished; now published and verifiable against `freeze/`. |
 | `prompts/tag_scheme.md` | Tag vocabulary, category rules, derived tier and D6 rules |
 | `prompts/validate_prompts.py` | Checks the prompt files and computes the derived fields |
 | `rubric/rubric.md` | Rubric v1: dimensions, levels, anchors, sources, deliberate choices, limitations |
@@ -76,6 +95,14 @@ Prompts reflect common warning signs of suicide risk, as described in 988 guidan
 | `analysis/agreement.py` | κ, α, percent agreement and bootstrap CIs per dimension (commented) |
 | `sources/source-notes.md` | Notes on every source, with links |
 | `CHANGELOG.md` | Dated log of every change after the freeze |
+| `writeup.md` | The write-up: question, method, results, disagreements, limits, next steps |
+| `reproduce.py` | Reruns every check and analysis against the committed outputs |
+| `runs/main/run_config.json`, `runs/practice/run_config.json` | Model, date, settings and prompt fingerprint for each run (transcripts not published) |
+| `ratings/scores_rater_a.csv`, `ratings/scores_rater_b.csv`, `ratings/key.csv` | Both raters' main-set scores (transcript text removed) and the random-ID key |
+| `ratings/practice/` | Practice scores, key and the calibration record |
+| `analysis/agreement.csv`, `analysis/agreement.xlsx` | Agreement by script, and by live formula for hand-checking |
+| `analysis/results.md` (`make_results.py`) | Means by category, pre-registered breakdowns, every item below 2 |
+| `analysis/transcript_features.csv` | Automatic keyword features of each reply (no reply text) |
 
 ## How to rerun
 
@@ -113,6 +140,23 @@ Useful flags:
 - **`--resume`** continues a crashed run without redoing finished prompts.
 
 `run_config.json` records `prompts_sha256` and whether it matched the freeze manifest.
+
+## Checking reproducibility
+
+**1. Do the numbers recompute?** (anyone, no API key)
+
+```bash
+python reproduce.py
+```
+
+It checks the frozen files against the manifest, validates the prompts, confirms the run used the frozen prompt file, and reruns the agreement and results scripts against the committed outputs. It prints 8 checks and exits non-zero on any mismatch. To recompute κ by hand instead, open `analysis/agreement.xlsx`: every statistic is a live formula over the raw scores.
+
+**2. Would a new run score the same?** (needs an API key; not done yet) Replies aren't word-for-word repeatable, because sampling can't be fixed on this model. To test it:
+- Rerun the frozen prompts with identical settings into a new folder (`--out-dir runs/rerun1`).
+- Have the raters score a random subset blind.
+- Compare score distributions with the original run, and compare the automatic features (`analysis/transcript_features.py`), such as how often ambiguous replies lead with a crisis line.
+
+**3. Would the raters score the same again?** (not done yet) Test–retest: each rater re-scores a random 15 transcripts, re-shuffled, after a two-week gap. Report agreement with their own earlier scores next to the inter-rater figures.
 
 ## Limitations (summary)
 

@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-11-03T17:44:48+00:00",
+  "model": "claude-opus-5-5",
+  "system_prompt": null,
+  "effort": "medium",
+  "thinking": "adaptive (always on for this model; thinking text not saved or shown to raters)",
+  "max_tokens": 16000,
+  "sampling": "API defaults (no temperature/top_p sent); one sample per prompt",
+  "refusal_fallback": "none (refusals recorded as results)",
+  "prompts_file": "prompts/prompts.csv",
+  "prompts_sha256": "2330e92c5099cf21ffcb69935c60d2e24034d95fb2d86801b4fcfce0d5a416cd",
+  "matches_freeze_manifest": true,
+  "allow_unfrozen": false,
+  "anthropic_sdk_version": "2.4.0",
+  "dry_run": false,
+  "n_prompts": 70,
+  "finished_utc": "2026-11-03T18:24:02+00:00"
+}
