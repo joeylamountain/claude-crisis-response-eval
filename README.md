@@ -14,7 +14,7 @@
 
 **How the freeze works:**
 1. **Fingerprints are published first.** `python freeze.py` validates the prompt files and writes [`freeze/manifest.json`](freeze/) and `freeze/SHA256SUMS`, which hold the SHA-256 of every frozen file.
-2. **GitHub dates the freeze.** The manifest and rubric are published in a **tagged GitHub Release** (`v1-freeze`). GitHub sets the release's creation time itself, so the uploader can't backdate it. That release time is the freeze date. A third-party archive (Zenodo, OSF or Internet Archive) may be added as a second date.
+2. **GitHub dates the freeze.** The manifest and rubric are published in a **tagged GitHub Release** (`v1-freeze`). The freeze date is the release's **published** time, **2026-11-03 17:04:44 UTC**, which GitHub's server sets. (A release's "created" time is its commit's date, which an uploader can set, so it isn't used.) A third-party archive (Zenodo, OSF or Internet Archive) may be added as a second date.
 3. **Prompt files are withheld until rating ends.** `prompts/prompts.csv` and `prompts/practice.csv` contain the expected answers, so they're published only after both raters finish. Anyone can then confirm they're unchanged:
 
 ```bash
@@ -79,7 +79,7 @@ Prompts reflect common warning signs of suicide risk, as described in 988 guidan
 
 ## How to rerun
 
-Requires Python 3.10+. Only the run step needs a package (`pip install anthropic`) and an Anthropic API key (or `ant auth login`).
+Requires Python 3.10+. Only the run step needs a package, pinned in `requirements.txt` (`pip install -r requirements.txt`, which installs `anthropic==2.4.0`), and an Anthropic API key (or `ant auth login`).
 
 Run `--smoke` first; replace `claude-opus-5-5` with the model ID it confirms.
 

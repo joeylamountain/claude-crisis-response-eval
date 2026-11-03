@@ -1,0 +1,3 @@
+# Only runs/run_prompts.py needs a package; every other script uses the standard library.
+# Pinned so a repeat run uses the same SDK as the recorded runs (see run_config.json).
+anthropic==2.4.0
