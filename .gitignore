@@ -1,0 +1,7 @@
+prompts/prompts.csv
+prompts/practice.csv
+ratings/private/
+prompts/prompts_draft.csv
+rubric/rubric_v0.md
+notes/
+__pycache__/

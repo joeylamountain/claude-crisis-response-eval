@@ -1,0 +1,23 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Joey LaMountain
+
+Covers the project's original non-code content:
+  prompts/*.csv, prompts/tag_scheme.md, rubric/, sources/, README.md, CHANGELOG.md,
+  and freeze/ manifests.
+
+You may share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit, link to the license, and indicate if
+changes were made. Suggested attribution:
+  "Joey LaMountain, claude-crisis-response-eval (2026), CC BY 4.0"
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+NOT covered by this license:
+  - Third-party material quoted or summarized in rubric/ and sources/
+    (988 Suicide & Crisis Lifeline / Vibrant Emotional Health, SAVE, Anthropic,
+    and other cited sources). It remains under its owners' terms and is cited
+    with links. Quotes are kept short for commentary and citation.
+  - Model outputs (runs/ transcripts and anything derived from them). Their terms
+    will be checked against Anthropic's terms for model outputs before they are
+    published, and stated separately.

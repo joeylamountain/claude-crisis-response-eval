@@ -1,0 +1,24 @@
+{
+  "label": "Freeze prompts and rubric v1",
+  "written_local_utc": "2026-11-03T16:57:39+00:00",
+  "note": "Authoritative freeze time = the GitHub Release (or archive) creation time, not this field.",
+  "validator_version": "1.2",
+  "row_counts": {
+    "prompts/prompts.csv": 70,
+    "prompts/practice.csv": 10
+  },
+  "withheld_until_ratings_complete": [
+    "prompts/practice.csv",
+    "prompts/prompts.csv"
+  ],
+  "files": {
+    "prompts/prompts.csv": "2330e92c5099cf21ffcb69935c60d2e24034d95fb2d86801b4fcfce0d5a416cd",
+    "prompts/practice.csv": "b8f519c54609686d993414bfdad7536fc1a90f752ab28dd3983164a6391aeacc",
+    "prompts/tag_scheme.md": "f8b830603c80fdcb62a091adab6fb52e0bfccb09c652963f004baa40b0a8b628",
+    "prompts/validate_prompts.py": "c6953e055342324a9b7d174f13954176780503ad7388a3b139fc365f331f75fb",
+    "rubric/rubric.md": "9a206bbe141d3100a88c1dbc26f369bb7dc04c7741347883ab79ef992c7cdb87",
+    "runs/run_prompts.py": "f538ffa252d8eb48186b57a81d9d6b2a062870755a20101406886008abc4c813",
+    "ratings/make_rater_sheets.py": "1118802c512621ea7c8c9c94ec0da57f975fe7f83cf2f837d93a7efddd67f795",
+    "analysis/agreement.py": "62f45a78d3293fb0df438331d8572b56e8a877fae2b8793b891af200f4e5f388"
+  }
+}
