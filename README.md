@@ -33,7 +33,7 @@ Full write-up: [`writeup.md`](writeup.md). Tables with every item listed: [`anal
 
 **How the freeze works:**
 1. **Fingerprints are published first.** `python freeze.py` validates the prompt files and writes [`freeze/manifest.json`](freeze/) and `freeze/SHA256SUMS`, which hold the SHA-256 of every frozen file.
-2. **GitHub dates the freeze.** The manifest and rubric are published in a **tagged GitHub Release** (`v1-freeze`). The freeze date is the release's **published** time, **2026-11-03 17:04:44 UTC**, which GitHub's server sets. (A release's "created" time is its commit's date, which an uploader can set, so it isn't used.) A third-party archive (Zenodo, OSF or Internet Archive) may be added as a second date.
+2. **GitHub dates the freeze.** The manifest and rubric are published in a **tagged GitHub Release** (`v1-freeze`). The freeze date is the release's **published** time, **2026-11-03 17:04:44 UTC**, which GitHub's server sets. (A release's "created" time is its commit's date, which an uploader can set, so it isn't used.) **Disclosure:** at 19:57 UTC the tag was re-pointed to a rebuilt commit that differs from the original only in `sources/source-notes.md`, a file that isn't frozen, from which personal notes were removed. The fingerprints are unchanged; see `CHANGELOG.md`. A third-party archive (Zenodo, OSF or Internet Archive) may be added as a second date.
 3. **Prompt files are withheld until rating ends.** `prompts/prompts.csv` and `prompts/practice.csv` contain the expected answers, so they're published only after both raters finish. Anyone can then confirm they're unchanged:
 
 ```bash

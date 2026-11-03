@@ -2,6 +2,14 @@
 
 Frozen files are listed with their SHA-256 in `freeze/manifest.json`. They aren't edited silently after the freeze. Every change is logged here with a date, what changed, and why. Rubric changes from calibration create a new version (v1.1, …), and results report which version was used.
 
+## 2026-11-03 (19:57 UTC): History rebuilt to remove personal notes (no frozen file changed)
+
+- **What changed:** every commit was rebuilt so that `sources/source-notes.md` no longer contains a section of personal notes. The author had already removed it from the current version at 19:21 UTC, but it remained in earlier commits. `source-notes.md` isn't a frozen file (it isn't listed in `freeze/manifest.json`).
+- **What didn't change:** each rebuilt commit is identical to its original except that one file, and the current files are byte-identical to before the rebuild. `freeze/manifest.json` and every frozen file are unchanged, so `python freeze.py --verify` and `python reproduce.py` still pass.
+- **The `v1-freeze` tag** now points to the rebuilt freeze commit (`0a51857`), and the release notes say so. The release's published time, 17:04:44 UTC, comes from its original publication.
+- **Effect on the freeze evidence:** GitHub doesn't record tag moves. Evidence that the fingerprints were public before the 17:44 UTC run now rests on this disclosure and the unchanged fingerprints, not on GitHub alone.
+- **Dates:** rebuilt commits keep their original author dates; their commit dates show the rebuild time. The author's separate 19:21 commit, which only made that edit, is no longer a separate commit.
+
 ## 2026-11-03: Main run rated; results and write-up published
 
 - **Main run:** claude-opus-5-5, 17:44–18:24 UTC, prompt file matched the freeze (`runs/main/run_config.json`). Both raters scored all 70 transcripts independently on rubric v1.
